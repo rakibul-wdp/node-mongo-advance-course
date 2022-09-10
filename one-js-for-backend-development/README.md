@@ -8,3 +8,6 @@
 ### 1-2 Promises and handling multiple promises
 
 - promise have three state like pending, resolved, and rejected.
+- promise is an asynchronous task.
+
+### 1-3 Async await
