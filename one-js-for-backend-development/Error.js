@@ -1,7 +1,6 @@
-// const { errorHandler, two } = require('./errorHandler.js');
-import { errorHandler } from './errorHandler';
+const { errorHandler, two } = require('./errorHandler.js');
 
-// two();
+two();
 
 async function getData() {
   try {

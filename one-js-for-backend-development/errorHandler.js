@@ -1,6 +1,6 @@
 console.log(module);
 
-export function errorHandler(error) {
+function errorHandler(error) {
   const { name, message, stack } = error;
 
   console.log(name, message);
@@ -29,4 +29,5 @@ module.exports.two = function two() {
 
 console.log(module);
 
-export default two;
+module.exports = errorHandler;
+module.exports = two;
