@@ -1,3 +1,8 @@
+// const { errorHandler, two } = require('./errorHandler.js');
+import { errorHandler } from './errorHandler';
+
+// two();
+
 async function getData() {
   try {
     // undefined.find();
@@ -10,19 +15,5 @@ async function getData() {
 }
 
 getData();
-
-function errorHandler(error) {
-  const { name, message, stack } = error;
-
-  console.log(name, message);
-
-  // logger.error({
-  //   name,
-  //   message,
-  //   stack,
-  // });
-
-  // console.log('Internal server error');
-}
 
 console.log('Done...!!!');
