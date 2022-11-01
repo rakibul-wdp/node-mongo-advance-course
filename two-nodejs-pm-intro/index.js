@@ -1,23 +1,16 @@
 // local module
-const { add } = require("./other");
+const other = require("./other");
 
-// core modules
+// const res = other.subtract(5, 4);
+// console.log(res);
+
 const http = require('http');
 
-// third party module -> underscore
-const _= require('underscore');
+const server = http.createServer((req, res) => {
+  res.end('hello node.js');
+})
 
-const server = http.createServer(function(req, res) {
-  // console.log(`server is running`);
-});
-server.listen(5000);
+const PORT = 5000;
+server.listen(PORT);
 
-// const result = add(2, 3);
-
-// console.log(result);
-
-var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
-
-const res = _.pluck(stooges, 'age');
-
-console.log(res);
+console.log(`server is running at ${PORT}`);
