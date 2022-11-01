@@ -1,13 +1,19 @@
-// local module
-const other = require("./other");
-
-// const res = other.subtract(5, 4);
-// console.log(res);
-
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.end('hello node.js');
+  if (req.url == '/') {
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.write(JSON.stringify({name: 'Larry'}));
+    res.end();
+  } else if (req.url == '/contact') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<p>This is Contact page</p>');
+    res.end();
+  } else if (req.url == '/about-us') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<p>This is About Us page</p>');
+    res.end();
+  }
 })
 
 const PORT = 5000;
