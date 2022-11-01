@@ -1,20 +1,18 @@
 const http = require('http');
+const url = require('url');
 
 const server = http.createServer((req, res) => {
-  if (req.url == '/') {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.write(JSON.stringify({name: 'Larry'}));
-    res.end();
-  } else if (req.url == '/contact') {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<p>This is Contact page</p>');
-    res.end();
-  } else if (req.url == '/about-us') {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<p>This is About Us page</p>');
-    res.end();
-  }
+  const address_url = 'http://localhost:5000/contact?name=omok&country=tomok';
+
+  const parsed_url = url.parse(address_url, true)
+  
+  const queryObject = parsed_url.query
+
+  console.log(queryObject);
+
 })
+
+console.log(url);
 
 const PORT = 5000;
 server.listen(PORT);
