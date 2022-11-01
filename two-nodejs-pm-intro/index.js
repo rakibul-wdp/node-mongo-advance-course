@@ -1,18 +1,35 @@
 const http = require('http');
-const url = require('url');
+const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-  const address_url = 'http://localhost:5000/contact?name=omok&country=tomok';
-
-  const parsed_url = url.parse(address_url, true)
   
-  const queryObject = parsed_url.query
+  if (req.url = '/') {
+    // fs.readFile('data.txt', (err, data) => {
+    //   if (err) {
+    //     res.write('Failed To Read Data ...')
+    //     res.end()
+    //   } else {
+    //     res.write(data)
+    //     res.end()
+    //   }
+    // })
 
-  console.log(queryObject);
+    // const data = fs.readFileSync('data.txt');
+    // res.write(data);
+    // res.end();
+
+    fs.writeFile('newData.txt', 'Hello Node JS in New data ...', (err) => {
+      if (err) {
+        res.write('Data failed to write');
+        res.end();
+      } else {
+        res.write('data written successfully');
+        res.end();
+      }
+    })
+  }
 
 })
-
-console.log(url);
 
 const PORT = 5000;
 server.listen(PORT);
