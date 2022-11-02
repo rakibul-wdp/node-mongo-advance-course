@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require("nodemailer");
+const dbConnect = require("./utils/dbConnect");
 
 app.use(cors());
 app.use(express.json());
@@ -55,10 +56,7 @@ function sendOrderMail(orders) {
 
 }
 
-
-
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.roc0q.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+dbConnect();
 
 async function run() {
   try {
