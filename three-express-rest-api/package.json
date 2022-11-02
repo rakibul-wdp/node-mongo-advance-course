@@ -1,0 +1,12 @@
+{
+  "name": "three-express-rest-api",
+  "version": "1.0.0",
+  "description": "### Any fool can write code that a computer can understand and good programmer write code that humans can understand.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
