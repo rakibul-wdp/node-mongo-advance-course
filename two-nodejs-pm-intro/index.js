@@ -37,7 +37,15 @@ const server = http.createServer((req, res) => {
       }
     })
   } else if (req.url == '/append') {
-
+    fs.appendFile('data.txt', 'No! It will be full not pull ! 😑', (err) => {
+      if (err) {
+        res.write('Data is not append');
+        res.end();
+      } else {
+        res.write('Data append successfully');
+        res.end();
+      }
+    })
   } else if (req.url == '/delete') {
 
   }
