@@ -1,13 +1,9 @@
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
+const http = require('http');
 
-// creating an event handler
-const khawkhaw = () => {
-  console.log('kuti re asbu na...');
-}
+const server = http.createServer((req, res) => {
+  res.end('Hello Node.js');
+});
 
-// assign the handler into an event
-eventEmitter.on('scream', khawkhaw).khawkhaw
-
-// firing the event
-eventEmitter.emit('scream');
+const PORT = 5000;
+server.listen(PORT);
+console.log(`server is running on ${PORT}`);
