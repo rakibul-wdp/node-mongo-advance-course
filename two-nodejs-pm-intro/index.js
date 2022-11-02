@@ -47,7 +47,15 @@ const server = http.createServer((req, res) => {
       }
     })
   } else if (req.url == '/delete') {
-
+    fs.unlink('test.txt', (err) => {
+      if (err) {
+        res.write('File not deleted');
+        res.end();
+      } else {
+        res.write('test.txt file deleted successfully');
+        res.end();
+      }
+    })
   }
 });
 
