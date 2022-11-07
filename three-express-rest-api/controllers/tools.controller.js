@@ -1,7 +1,7 @@
 const getAllTools = (req, res, next) => {
   const {ip, query, params, body, headers} = req;
   console.log(ip, query, params, body, headers);
-  res.send("got it");
+  res.download(__dirname + './tools.controller.js');
 };
 
 const saveATool = (req, res) => {

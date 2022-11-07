@@ -9,9 +9,12 @@ const port = process.env.PORT || 5000;
 // const nodemailer = require("nodemailer");
 const dbConnect = require("./utils/dbConnect");
 const toolsRoutes = require("./routes/v1/tools.route");
+const viewCount = require("./middleware/viewCount");
 
 app.use(cors());
 app.use(express.json());
+
+app.use(viewCount)
 
 dbConnect();
 
