@@ -10,11 +10,16 @@ const port = process.env.PORT || 5000;
 const dbConnect = require("./utils/dbConnect");
 const toolsRoutes = require("./routes/v1/tools.route");
 const viewCount = require("./middleware/viewCount");
+const { default: rateLimit } = require("express-rate-limit");
 
 app.use(cors());
 app.use(express.json());
 
-app.use(viewCount)
+// app.use(viewCount)
+
+
+
+// app.use(limiter);
 
 dbConnect();
 

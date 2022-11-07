@@ -1,14 +1,17 @@
 const getAllTools = (req, res, next) => {
-  const {ip, query, params, body, headers} = req;
-  console.log(ip, query, params, body, headers);
-  res.download(__dirname + './tools.controller.js');
+  res.send('get all tools');
 };
 
 const saveATool = (req, res) => {
   res.send('tools added');
 };
 
+const getToolDetails = (req, res) => {
+  res.send('tool details found')
+};
+
 module.exports = {
   getAllTools,
   saveATool,
+  getToolDetails,
 }
