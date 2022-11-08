@@ -47,6 +47,6 @@ router.route('/')
  */
 .post(toolsControllers.saveATool);
 
-router.route('/:id').get( viewCount, limiter, toolsControllers.getToolDetails);
+router.route('/:id').get( limiter, viewCount, toolsControllers.getToolDetails);
 
 module.exports = router;
