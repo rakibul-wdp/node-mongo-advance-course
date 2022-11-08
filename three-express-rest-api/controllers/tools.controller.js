@@ -11,7 +11,9 @@ const getAllTools = (req, res, next) => {
 };
 
 const saveATool = (req, res) => {
-  res.send('tools added');
+  console.log(req.body);
+  tools.push(req.body);
+  res.send(tools);
 };
 
 const getToolDetails = (req, res) => {
