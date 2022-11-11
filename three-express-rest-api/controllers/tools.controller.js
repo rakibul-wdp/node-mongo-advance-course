@@ -21,7 +21,15 @@ const getToolDetails = (req, res) => {
   console.log(id);
   // const filter = {_id: id};
   const foundTool = tools.find(tool => tool.id === Number(id));
-  res.send(foundTool)
+  res.status(200).send({
+    success: true,
+    message: 'Success',
+    data: foundTool
+  });
+  // res.status(500).send({
+  //   success: false,
+  //   error: 'Internal server error'
+  // });
 };
 
 const updateTool = (req, res) => {
