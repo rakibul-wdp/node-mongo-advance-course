@@ -1,3 +1,5 @@
+const { default: db } = require("../utils/dbConnect");
+
 let tools = [
   {id: 1, name: 'Abul'},
   {id: 2, name: 'Babul'},
@@ -10,10 +12,16 @@ const getAllTools = (req, res, next) => {
   res.json(tools.slice(0, limit));
 };
 
-const saveATool = (req, res) => {
-  console.log(req.body);
-  tools.push(req.body);
-  res.send(tools);
+const saveATool = async (req, res) => {
+  try {
+   const db = db();
+   const tool = req.body;
+
+   const result = await db.collection("tools").insertOne(tool);
+   console.log(result);
+  } catch (error) {
+    
+  }
 };
 
 const getToolDetails = (req, res) => {

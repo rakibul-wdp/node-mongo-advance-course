@@ -1,7 +1,16 @@
-function dbConnect() {
-  // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.roc0q.mongodb.net/?retryWrites=true&w=majority`;
-  // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-  console.log('DB connected');
-};
+import { MongoClient } from "mongodb";
 
-module.exports = dbConnect;
+const connectionString = process.env.ATLAS_URI || "";
+
+const client = new MongoClient(connectionString);
+
+let conn;
+try {
+  conn = await client.connect();
+} catch (e) {
+  console.error(e);
+}
+
+let db = conn.db("tools");
+
+export default db;
